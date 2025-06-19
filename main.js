@@ -1,6 +1,6 @@
 const API_URL = 'https://api.nasa.gov/planetary/apod?api_key=nDBYkod6BtZONrkEmYH9sdsDaElt7IMswk6rGJmL&count=3';
 
-async function pod(){
+async function pod() {
     const response = await fetch(API_URL)
     const data = await response.json()
     console.log(data)
@@ -24,7 +24,6 @@ async function pod(){
     date1.innerHTML = data[0].date
     date2.innerHTML = data[1].date
     date3.innerHTML = data[2].date
-
 
     img1.src = data[0].url
     img2.src = data[1].url

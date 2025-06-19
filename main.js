@@ -13,9 +13,18 @@ async function pod(){
     const img2 = document.getElementById('img2')
     const img3 = document.getElementById('img3')
 
+    const title1 = document.getElementById('title1')
+    const title2 = document.getElementById('title2')
+    const title3 = document.getElementById('title3')
+
+    title1.innerHTML = data[0].title
+    title2.innerHTML = data[1].title
+    title3.innerHTML = data[2].title
+
     date1.innerHTML = data[0].date
     date2.innerHTML = data[1].date
     date3.innerHTML = data[2].date
+
 
     img1.src = data[0].url
     img2.src = data[1].url

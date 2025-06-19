@@ -1,5 +1,6 @@
-const API_URL_POD = 'https://api.nasa.gov/planetary/apod?api_key=nDBYkod6BtZONrkEmYH9sdsDaElt7IMswk6rGJmL&count=3';
-const API_DATE = 'https://api.nasa.gov/planetary/apod?api_key=nDBYkod6BtZONrkEmYH9sdsDaElt7IMswk6rGJmL&date=';
+const API_KEY = 'nDBYkod6BtZONrkEmYH9sdsDaElt7IMswk6rGJmL'
+const API_URL_POD = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=3`;
+const API_DATE = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=`;
 
 async function pod() {
     const response = await fetch(API_URL_POD)

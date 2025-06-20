@@ -7,6 +7,7 @@ Incluye un botón para ver imágenes **aleatorias** del archivo histórico de la
 
 - Muestra la imagen del día con su título y fecha.
 - Permite obtener una imagen aleatoria al hacer clic en "Cambiar".
+- Permite seleccionar una fecha y mostrar la imagen de esa fecha
 - 100% en JavaScript puro + HTML + CSS.
 
 ## 🔭 API utilizada
@@ -16,6 +17,7 @@ Incluye un botón para ver imágenes **aleatorias** del archivo histórico de la
 - Parámetros:
   - `api_key`: clave gratuita que se obtiene al registrarse.
   - `count`: número de imágenes aleatorias (usamos `count=1` para una sola).
+  - `date`: para seleccionar una imagen segun la fecha (En desarrollo tipos de errores con JS)
 
 ## 📦 Instalación y uso
 

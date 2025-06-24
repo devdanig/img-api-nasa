@@ -4,7 +4,7 @@ const API_DATE = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=`;
 
 function obtenerFechaActual(){
     const today = new Date()
-    today.setDate(today.getDate() - 1) // Restar 1 día
+    today.setDate(today.getDate()) // Restar 1 día
     return today.toISOString().split('T')[0] // Formato YYYY-MM-DD
 }
 

@@ -2,6 +2,13 @@ const API_KEY = 'nDBYkod6BtZONrkEmYH9sdsDaElt7IMswk6rGJmL'
 const API_URL_POD = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&count=3`;
 const API_DATE = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=`;
 
+function obtenerFechaActual(){
+    const today = new Date()
+    today.setDate(today.getDate() - 1) // Restar 1 día
+    return today.toISOString().split('T')[0] // Formato YYYY-MM-DD
+}
+
+
 async function pod() {
     const response = await fetch(API_URL_POD)
     const data = await response.json()
@@ -39,6 +46,7 @@ async function datePod(){
     const data = await response.json()
     if(response.status !== 200) {
         alert('Error: ' + data.msg);
+        console.error('response.status', response);
         return;
     }
     imgDate.src = data.url
@@ -46,5 +54,10 @@ async function datePod(){
     dateDate.innerHTML = data.date
 }
 
-pod()
-datePod()
+function init() {
+    document.getElementById('fecha').value = obtenerFechaActual();
+    pod();
+    datePod();
+}
+
+init()

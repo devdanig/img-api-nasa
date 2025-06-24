@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>POD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,29 +14,33 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
-      color: #ffffff;
+      font-family: 'Fira Code', monospace;
+      background: #0a0a0a;
+      color: #e5e5e5;
       line-height: 1.6;
       min-height: 100vh;
+      font-weight: 400;
     }
 
     h1 {
       text-align: center;
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 300;
-      margin: 2rem 0;
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradient 3s ease infinite;
+      margin: 3rem 0;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      position: relative;
     }
 
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: #333333;
     }
 
     section {
@@ -47,95 +52,82 @@
     #randomPod {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      gap: 1.5rem;
       margin-bottom: 4rem;
     }
 
     article {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
+      background: #111111;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
       padding: 1.5rem;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       position: relative;
-      overflow: hidden;
-    }
-
-    article::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
-      opacity: 0;
-      transition: opacity 0.3s ease;
     }
 
     article:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    article:hover::before {
-      opacity: 1;
+      background: #151515;
+      border-color: #2a2a2a;
+      transform: translateY(-2px);
     }
 
     article h3 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-bottom: 0.5rem;
       font-weight: 500;
+      color: #ffffff;
     }
 
     article img {
       width: 100%;
       height: 200px;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 4px;
       margin: 1rem 0;
-      transition: transform 0.3s ease;
+      transition: opacity 0.2s ease;
+      border: 1px solid #1a1a1a;
     }
 
     article:hover img {
-      transform: scale(1.02);
+      opacity: 0.9;
     }
 
     button {
-      background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
+      background: #1a1a1a;
+      color: #e5e5e5;
+      border: 1px solid #2a2a2a;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
       cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      font-weight: 400;
+      font-family: 'Fira Code', monospace;
+      transition: all 0.2s ease;
       margin-top: 1rem;
     }
 
     button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+      background: #2a2a2a;
+      border-color: #3a3a3a;
     }
 
     button:active {
-      transform: translateY(0);
+      background: #0a0a0a;
     }
 
     #datePod {
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 20px;
+      background: #0f0f0f;
+      border-radius: 8px;
       padding: 2.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid #1a1a1a;
     }
 
     #datePod h2 {
-      font-size: 2rem;
-      font-weight: 300;
+      font-size: 1.5rem;
+      font-weight: 400;
       margin-bottom: 1.5rem;
       text-align: center;
+      color: #ffffff;
     }
 
     .search-container {
@@ -148,19 +140,24 @@
     }
 
     input[type="date"] {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 0.8rem;
-      border-radius: 8px;
-      font-size: 1rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      color: #e5e5e5;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-family: 'Fira Code', monospace;
       min-width: 150px;
     }
 
     input[type="date"]:focus {
       outline: none;
-      border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+      border-color: #3a3a3a;
+      background: #222222;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
     }
 
     .result-container {
@@ -172,29 +169,55 @@
       width: 100%;
       max-width: 600px;
       height: auto;
-      border-radius: 16px;
+      border-radius: 8px;
       margin-top: 1rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid #1a1a1a;
     }
 
     #titleDate {
-      font-size: 1.5rem;
-      font-weight: 400;
+      font-size: 1.25rem;
+      font-weight: 500;
       margin-bottom: 0.5rem;
+      color: #ffffff;
     }
 
     #dateDate {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1rem;
+      color: #888888;
+      font-size: 0.9rem;
+      font-weight: 300;
     }
 
     .change-btn {
       grid-column: 1 / -1;
       justify-self: center;
-      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-      font-size: 1.1rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      font-size: 0.9rem;
       padding: 1rem 2rem;
       margin-top: 1rem;
+    }
+
+    .change-btn:hover {
+      background: #2a2a2a;
+      border-color: #3a3a3a;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1a1a1a;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2a2a2a;
     }
 
     @media (max-width: 768px) {
@@ -208,11 +231,15 @@
       
       #randomPod {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
       }
       
       .search-container {
         flex-direction: column;
+      }
+
+      #datePod {
+        padding: 1.5rem;
       }
     }
   </style>

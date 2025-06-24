@@ -37,9 +37,14 @@ async function datePod(){
     const inputDate = document.getElementById('fecha').value;
     const response = await fetch(API_DATE + inputDate)
     const data = await response.json()
+    if(response.status !== 200) {
+        alert('Error: ' + data.msg);
+        return;
+    }
     imgDate.src = data.url
     titleDate.innerHTML = data.title
     dateDate.innerHTML = data.date
 }
 
 pod()
+datePod()
